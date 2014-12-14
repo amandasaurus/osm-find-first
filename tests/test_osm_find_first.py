@@ -67,10 +67,10 @@ class TestOsmFindFirst(unittest.TestCase):
     @httpretty.activate
     def testGettingResult(self):
         httpretty.register_uri(httpretty.GET,
-                               re.compile(
-                               "http://api.openstreetmap.org/api/0.6/(node|way|relation)/[0-9]+/1"),
-                               body='<osm><relation id="1" uid="123" user="testuser" timestamp="2000-01-01 115:24:02"></relation></osm>',
-                               content_type="text/xml")
+                re.compile(
+                    "http://api.openstreetmap.org/api/0.6/(node|way|relation)/[0-9]+/1"),
+                    body='<osm><relation id="1" uid="123" user="testuser" timestamp="2000-01-01 115:24:02"></relation></osm>',
+                    content_type="text/xml")
 
         result = osm_find_first.find_first(
             [], [{'osm_type': 'relation', 'osm_id': '1'}])
