@@ -13,15 +13,9 @@ import unittest
 import osm_find_first
 
 
-class TestOsm_find_first(unittest.TestCase):
-
-    def setUp(self):
-        pass
+class TestOsmFindFirst(unittest.TestCase):
 
     def test_something(self):
-        pass
-
-    def tearDown(self):
         pass
 
 if __name__ == '__main__':
