@@ -141,7 +141,6 @@ def main(argv):
     logger.setLevel(logging.DEBUG)
 
     find_first_from_csvs('ieadmins.csv', 'iemissing.csv')
-    #[{'osm_type': 'relation', 'osm_id': '4121287'},{'osm_type':'relation', 'osm_id':'4072665'}])
 
 
 if __name__ == '__main__':
