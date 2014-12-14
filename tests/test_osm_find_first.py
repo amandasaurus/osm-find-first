@@ -16,6 +16,9 @@ import httpretty
 
 import osm_find_first
 
+def v(string):
+    return string.format(version=osm_find_first.__version__)
+
 
 class TestOsmFindFirst(unittest.TestCase):
 
@@ -69,6 +72,9 @@ class TestOsmFindFirst(unittest.TestCase):
 
         result = osm_find_first.find_first([], [{'osm_type': 'relation', 'osm_id': '1'}])
         self.assertEqual(result, [{'osm_timestamp': '2000-01-01 115:24:02', 'osm_type': 'relation', 'osm_uid': '123', 'osm_user': 'testuser', 'osm_id': '1'}])
+        self.assertEqual(httpretty.last_request().method, "GET")
+        self.assertEqual(httpretty.last_request().path, "/api/0.6/relation/1/1")
+        self.assertEqual(httpretty.last_request().headers['user-agent'], v("osm-find-first/{version}"))
 
 
 if __name__ == '__main__':
