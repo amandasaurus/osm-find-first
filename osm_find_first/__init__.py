@@ -114,7 +114,7 @@ def write_to_csv(filename, result_data):
     """Write the result data to filename."""
     with open(filename, 'w') as fp:
         csv_writer = csv.DictWriter(
-            fp, ['osm_type', 'osm_id', 'osm_user', 'osm_uid', 'osm_timestamp'])
+            fp, ['osm_type', 'osm_id', 'osm_user', 'osm_uid', 'osm_timestamp'], lineterminator='\n')
         csv_writer.writeheader()
         csv_writer.writerows(result_data)
 
