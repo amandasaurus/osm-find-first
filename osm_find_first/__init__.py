@@ -5,7 +5,7 @@ __author__ = 'Rory McCann'
 __email__ = 'rory@technomancy.org'
 __version__ = '0.1.0'
 
-USER_AGENT = "osm-find-first/{}".format(__version__)
+USER_AGENT = "osm-find-first/{0}".format(__version__)
 
 import requests
 import csv
@@ -43,7 +43,7 @@ def find_first(known_data, osm_objs):
     # ensure it's correct format
     osm_objs = [{'osm_type': str(x['osm_type']), 'osm_id': str(x['osm_id'])} for x in osm_objs]
 
-    known_data_indexed = {(x['osm_type'], x['osm_id']): x for x in known_data}
+    known_data_indexed = dict(((x['osm_type'], x['osm_id']), x) for x in known_data)
     missing_objs = [x for x in osm_objs if (x['osm_type'], x['osm_id']) not in known_data_indexed]
 
     num_objs = len(missing_objs)
