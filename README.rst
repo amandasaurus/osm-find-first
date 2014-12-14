@@ -20,4 +20,3 @@ Find the first version, incl. datetime, of objects in the OSM database
 Features
 --------
 
-* TODO

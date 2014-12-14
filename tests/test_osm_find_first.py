@@ -10,7 +10,7 @@ Tests for `osm-find-first` module.
 
 import unittest
 
-from osm_find_first import osm_find_first
+import osm_find_first
 
 
 class TestOsm_find_first(unittest.TestCase):
