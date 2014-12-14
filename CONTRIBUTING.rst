@@ -76,7 +76,7 @@ Ready to contribute? Here's how to set up `osm-find-first` for local development
 
 5. When you're done making changes, check that your changes pass flake8 and the tests, including testing other Python versions with tox::
 
-    $ flake8 osm-find-first tests
+    $ flake8 osm_find_first tests
     $ python setup.py test
     $ tox
 
