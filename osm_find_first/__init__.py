@@ -48,7 +48,7 @@ def find_first(known_data, osm_objs):
 
     num_objs = len(missing_objs)
     logger.info("Need to query OSM for %d objects", num_objs)
-    print "Need to query OSM for %d objects" % num_objs
+    #print "Need to query OSM for %d objects" % num_objs
 
     for idx, obj in enumerate(missing_objs):
         assert is_osm_type(obj['osm_type'])
@@ -63,7 +63,7 @@ def find_first(known_data, osm_objs):
         osm_user = attrib['user']
         osm_timestamp = attrib['timestamp']
         logger.debug("Obj %d of %d: Got details for %s %s", idx+1, num_objs, obj['osm_type'], obj['osm_id'])
-        print "Obj %d of %d: Got details for %s %s" % ( idx+1, num_objs, obj['osm_type'], obj['osm_id'])
+        #print "Obj %d of %d: Got details for %s %s" % ( idx+1, num_objs, obj['osm_type'], obj['osm_id'])
 
         known_data.append({'osm_id': obj['osm_id'], 'osm_type': obj['osm_type'], 'osm_uid': osm_uid, 'osm_user': osm_user, 'osm_timestamp':osm_timestamp})
 
@@ -90,7 +90,7 @@ def find_first_from_csvs(csv_known_filename, missing):
     try:
         new_data = find_first(known_data, missing_osm_objs)
     except BaseException as ex:
-        print repr(ex)
+        #print repr(ex)
         # Exception!
         new_data = known_data
 
