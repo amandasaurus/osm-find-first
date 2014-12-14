@@ -40,6 +40,20 @@ class TestOsmFindFirst(unittest.TestCase):
         
         self.assertEqual(outputfile.read(), 'osm_type,osm_id,osm_user,osm_uid,osm_timestamp\nrelation,2227344,brianh,19612,2012-06-12 15:24:49+01\n')
         outputfile.close()
+
+    def testReadMissingFromCSV(self):
+        csv_content = 'osm_type,osm_id\nrelation,123\n'
+
+        outputfile = tempfile.NamedTemporaryFile()
+        outputfilename = outputfile.name
+        outputfile.write(csv_content)
+        outputfile.seek(0)
+
+        missing = osm_find_first.read_missing_from_csv(outputfilename)
+
+        self.assertEqual(missing, [{'osm_type': 'relation', 'osm_id': '123'}])
+
+        outputfile.close()
         
 
 if __name__ == '__main__':
