@@ -33,9 +33,6 @@ def is_osm_type(x):
     """Return True iff this is a valid 'osm_type'."""
     return x in ['node', 'way', 'relation']
 
-# osm_type ("node"/"way"/"relation"), osm_id, osm_uid, osm_user,
-# osm_timestamp (ISO formatted)
-
 
 def find_first(known_data, osm_objs):
     """
