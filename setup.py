@@ -7,6 +7,7 @@ try:
 except ImportError:
     from distutils.core import setup
 
+exec(open("./osm_find_first/_version.py").read())
 
 readme = open('README.rst').read()
 history = open('HISTORY.rst').read().replace('.. :changelog:', '')
@@ -22,7 +23,7 @@ test_requirements = [
 
 setup(
     name='osm-find-first',
-    version='0.1.0',
+    version=__version__,
     description='Find the first version, incl. datetime, of objects in the OSM database',
     long_description=readme + '\n\n' + history,
     author='Rory McCann',

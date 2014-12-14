@@ -3,7 +3,8 @@
 
 __author__ = 'Rory McCann'
 __email__ = 'rory@technomancy.org'
-__version__ = '0.1.0'
+
+from ._version import __version__
 
 USER_AGENT = "osm-find-first/{0}".format(__version__)
 
