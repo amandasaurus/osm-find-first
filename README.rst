@@ -20,3 +20,4 @@ Find the first version, incl. datetime, of objects in the OSM database
 Features
 --------
 
+Downloads metadata about objects in OpenStreetMap, so that you can see when they were created. Works with CSV files to store what 
