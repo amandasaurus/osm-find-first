@@ -23,7 +23,7 @@ logger = logging.getLogger(__name__)
 def is_int(x):
     """Return True iff this can be turned into an int."""
     try:
-        int(x)
+        long(x)
         return True
     except:
         return False
