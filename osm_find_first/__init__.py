@@ -90,6 +90,7 @@ def find_first_from_csvs(csv_known_filename, missing):
     with open(csv_known_filename) as fp:
         csv_known_reader = csv.DictReader(fp)
         known_data = list(csv_known_reader)
+        known_data = [{k: v.decode("utf8") for k, v in r.items()} for r in known_data]
         logger.info("Read %d OSM objects from file %s",
                     len(known_data), csv_known_filename)
 
@@ -116,7 +117,10 @@ def write_to_csv(filename, result_data):
         csv_writer = csv.DictWriter(
             fp, ['osm_type', 'osm_id', 'osm_user', 'osm_uid', 'osm_timestamp'], lineterminator='\n')
         csv_writer.writeheader()
-        csv_writer.writerows(result_data)
+        for row in result_data:
+            # Support unicode
+            row = {key: value.encode("utf8") for key, value in row.items()}
+            csv_writer.writerow(row)
 
 
 def read_missing_from_csv(csv_filename):
